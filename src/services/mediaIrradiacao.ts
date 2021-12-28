@@ -1,4 +1,8 @@
-import { VarIrradiacaoSolar } from "../App"
+export function oi() {
+
+}
+
+/*import { VarIrradiacaoSolar } from "../App"
 
 // Calcula a media de irradiação
 export function mediaIrradiacaoSolar() {
@@ -11,3 +15,4 @@ export function mediaIrradiacaoSolar() {
 
     return mediaIrradiacao
 }
+*/

@@ -1,4 +1,8 @@
-import { VarTotalPaineis } from "../App"
+export function oi() {
+
+}
+
+/*import { VarTotalPaineis } from "../App"
 
 import { potenciaDeGeracaoDeModulos } from "./potenciaModulos";
 import { mediaConsumo } from "./mediaConsumo"
@@ -19,3 +23,4 @@ export function totalDePaineis() {
         potenciaInversor
     }
 }
+*/

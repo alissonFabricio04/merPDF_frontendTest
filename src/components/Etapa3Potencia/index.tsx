@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
 import { Form, Input, Table } from "reactstrap";
 
 import { Container } from "./styles";
 
 
 interface FormPotenciaGeracaoProps {
-    panelName: string[];
-    solarRadiationAverage: number; // average == média
-    panelArea: number[];
-    panelEfficiency: number[];
+    panelName: (valor: string) => void;
+    panelArea: (valor: number) => void;
+    panelEfficiency: (valor: number) => void;
 }
 
 export function FormularioPotenciaDeGeracaoModulos(props: FormPotenciaGeracaoProps) {
@@ -32,20 +30,15 @@ export function FormularioPotenciaDeGeracaoModulos(props: FormPotenciaGeracaoPro
                                 <Input id="nomePainel" placeholder="Modelo do painel" type="text" 
                                     onChange={event => {
                                         const ret = String(event.target.value)
-                                        props.panelName[0] = ret
+                                        props.panelName(ret)
                                     }} 
-                                />
-                            </td>
-                            <td>
-                                <Input id="irradiacaoMedia" placeholder="Irradiacao media" type="number" 
-                                    value={props.solarRadiationAverage.toFixed(2)}
                                 />
                             </td>
                             <td>
                                 <Input id="areaPainel" placeholder="Area do painel (m²)" type="number"
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        props.panelArea[0] = ret
+                                        props.panelArea(ret)
                                     }} 
                                 />
                             </td>
@@ -53,7 +46,7 @@ export function FormularioPotenciaDeGeracaoModulos(props: FormPotenciaGeracaoPro
                                 <Input id="eficienciaPainel" placeholder="Eficiencia do painel" type="number"
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        props.panelEfficiency[0] = ret
+                                        props.panelEfficiency(ret)
                                     }} 
                                 />
                             </td>

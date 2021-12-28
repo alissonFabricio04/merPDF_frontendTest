@@ -4,7 +4,7 @@ import { Form, Input, Table } from "reactstrap";
 import { Container } from "./styles";
 
 interface FormTotalPaineisProps {
-    totalPanels: number[];
+    totalPanels: (valor: number) => void;
 }
 
 export function FormularioTotalDePaineis({ totalPanels }: FormTotalPaineisProps) {
@@ -24,7 +24,7 @@ export function FormularioTotalDePaineis({ totalPanels }: FormTotalPaineisProps)
                                 <Input id="potenciaModulo" placeholder="Potência do módulo" type="number" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        totalPanels[0] = ret
+                                        totalPanels(ret)
                                     }} 
                                 />
                             </td>

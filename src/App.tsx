@@ -1,3 +1,5 @@
+import axios from "axios";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from 'reactstrap';
 
@@ -6,48 +8,76 @@ import { FormularioConsumo } from './components/Etapa1Consumo';
 import { FormularioIrradiacaoSolar } from './components/Etapa2Irradiacao';
 import { FormularioPotenciaDeGeracaoModulos } from './components/Etapa3Potencia';
 import { FormularioTotalDePaineis } from './components/Etapa4TotalPaineis';
-import { NovoComponente } from './components/pdf';
 
-// Função de calculos
-import { gerarPdf } from './services/calculos';
-import { mediaIrradiacaoSolar } from './services/mediaIrradiacao';
-import { potenciaDeGeracaoDeModulos } from './services/potenciaModulos';
+// API
+import { api } from "./services/api";
+
 
 // Estilo global
 import { GlobalStyle } from './styles/styles';
 
-//--------------------------------------------------------------------------------------------------------//
-//FormularioConsumo
-export const VarConsumo = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-
-//FormularioIrradiacaoSolar
-export const VarIrradiacaoSolar = [4.83, 5.3, 4.82, 4.69, 4.07, 3.95, 3.97, 4.85, 4.37, 4.5, 4.74, 5.13]
-
-//FormularioPotenciaDeGeracaoModulos 
-export const VarModeloPainel = ["painel"]
-export const VarIrradiacaoMedia = mediaIrradiacaoSolar()
-export const VarAreaPainel = [0]
-export const VarEficienciaPainel = [0]
-
-//FormularioTotalDePaineis
-export const VarTotalPaineis = [0]
 
 function App() {
+  //FormularioConsumo
+  const VarConsumo = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+  //FormularioIrradiacaoSolar
+  const VarIrradiacaoSolar = [4.83, 5.3, 4.82, 4.69, 4.07, 3.95, 3.97, 4.85, 4.37, 4.5, 4.74, 5.13]
+
+  //FormularioPotenciaDeGeracaoModulos 
+  const [VarModeloPainel, setVarModeloPainel] = useState("painel")
+  const [VarAreaPainel, setVarAreaPainel] = useState(0)
+  const [VarEficienciaPainel, setVarEficienciaPainel] = useState(0)
+
+  //FormularioTotalDePaineis
+  const [VarPotenciaModulo, setVarPotenciaModulo] = useState(0)
+
+  function FunctionSetVarModeloPainel(valor: string) {
+    setVarModeloPainel(valor)
+  }
+
+  function FunctionSetVarAreaPainel(valor: number) {
+    setVarAreaPainel(valor)
+  }
+  
+  function FunctionSetVarEficienciaPainel(valor: number) {
+    setVarEficienciaPainel(valor)
+  }
+
+  function FunctionSetVarPotenciaModulo(valor: number) {
+    setVarPotenciaModulo(valor)
+  }
+
+  async function consoleView() {
+    console.log(VarModeloPainel)
+    console.log(VarAreaPainel)
+    console.log(VarEficienciaPainel)
+    console.log(VarPotenciaModulo)
+
+    const result = await axios.post(`${api}/pdf/env`, {
+      VarConsumo,
+      VarIrradiacaoSolar,
+      VarModeloPainel,
+      VarAreaPainel,
+      VarEficienciaPainel,
+      VarPotenciaModulo,
+    })
+      .then(response => alert(response))
+      .catch(response => alert("Deu Erro :("))
+  }
+
   return (
     <div>
       <FormularioConsumo consumer={VarConsumo} />
       <FormularioIrradiacaoSolar solarRadiation={VarIrradiacaoSolar} />
       <FormularioPotenciaDeGeracaoModulos 
-        panelName={VarModeloPainel}
-        solarRadiationAverage={VarIrradiacaoMedia}
-        panelArea={VarAreaPainel}
-        panelEfficiency={VarEficienciaPainel}
+        panelName={FunctionSetVarModeloPainel}
+        panelArea={FunctionSetVarAreaPainel}
+        panelEfficiency={FunctionSetVarEficienciaPainel}
       />
-      <FormularioTotalDePaineis totalPanels={VarTotalPaineis} />
+      <FormularioTotalDePaineis totalPanels={FunctionSetVarPotenciaModulo} />
 
-      <Button color="danger" onClick={gerarPdf}>
-        <Link to="/pdf">PDF</Link>
-      </Button>
+      <Button color="danger" onClick={consoleView}>PDF</Button>
 
       <GlobalStyle />
     </div>

@@ -1,3 +1,8 @@
+export function oi() {
+
+}
+
+/*
 import { VarConsumo } from "../App"
 
 // Calcula a media de consumo
@@ -11,3 +16,4 @@ export function mediaConsumo() {
 
     return mediaConsumo
 }
+*/

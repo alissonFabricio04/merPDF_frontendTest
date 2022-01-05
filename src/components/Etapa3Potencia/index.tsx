@@ -16,15 +16,12 @@ export function FormularioPotenciaDeGeracaoModulos(props: FormPotenciaGeracaoPro
                 <Table borderless>
                     <thead>
                         <tr>
-                            <th className="principal">Potência geração módulo mês</th>
+                            <th>Modelo do painel</th>
+                            <th>Area do painel (m²)</th>
+                            <th>Eficiencia do painel</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <th>Modelo do painel</th>
-                        <th>Irradiacao media</th>
-                        <th>Area do painel (m²)</th>
-                        <th>Eficiencia do painel</th>
-                        <th>Potência Total Por Módulo (kWh/mês)</th>
                         <tr>
                             <td>
                                 <Input id="nomePainel" placeholder="Modelo do painel" type="text" 

@@ -4,7 +4,7 @@ import { Form, Input, Table } from "reactstrap";
 import { Container } from "./styles";
 
 interface FormSolarRadiationProps {
-    solarRadiation: number[]
+    solarRadiation: (valor: number, indice: number) => void;
 }
 
 export function FormularioIrradiacaoSolar({ solarRadiation }: FormSolarRadiationProps) {
@@ -24,7 +24,7 @@ export function FormularioIrradiacaoSolar({ solarRadiation }: FormSolarRadiation
                                 <Input id="mes01" placeholder="Mês 1" type="number" 
                                     onChange={event => {
                                         const ret = Number(event.target.value) //ret = return
-                                        solarRadiation[0] = ret
+                                        solarRadiation(ret, 0)
                                     }} 
                                 />
                             </td>
@@ -32,7 +32,7 @@ export function FormularioIrradiacaoSolar({ solarRadiation }: FormSolarRadiation
                                 <Input id="exampleEmail" name="email" placeholder="Mês 2" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        solarRadiation[1] = ret
+                                        solarRadiation(ret, 1)
                                     }}
                                 />
                             </td>
@@ -40,7 +40,7 @@ export function FormularioIrradiacaoSolar({ solarRadiation }: FormSolarRadiation
                                 <Input id="exampleEmail" name="email" placeholder="Mês 3" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        solarRadiation[2] = ret
+                                        solarRadiation(ret, 2)
                                     }}
                                 />
                             </td>
@@ -48,7 +48,7 @@ export function FormularioIrradiacaoSolar({ solarRadiation }: FormSolarRadiation
                                 <Input id="exampleEmail" name="email" placeholder="Mês 4" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        solarRadiation[3] = ret
+                                        solarRadiation(ret, 3)
                                     }}
                                 />
                             </td>
@@ -56,7 +56,7 @@ export function FormularioIrradiacaoSolar({ solarRadiation }: FormSolarRadiation
                                 <Input id="exampleEmail" name="email" placeholder="Mês 5" type="text" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        solarRadiation[4] = ret
+                                        solarRadiation(ret, 4)
                                     }}
                                 />
                             </td>
@@ -64,7 +64,7 @@ export function FormularioIrradiacaoSolar({ solarRadiation }: FormSolarRadiation
                                 <Input id="exampleEmail" name="email" placeholder="Mês 6" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        solarRadiation[5] = ret
+                                        solarRadiation(ret, 5)
                                     }}
                                 />
                             </td>
@@ -72,7 +72,7 @@ export function FormularioIrradiacaoSolar({ solarRadiation }: FormSolarRadiation
                                 <Input id="exampleEmail" name="email" placeholder="Mês 7" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        solarRadiation[6] = ret
+                                        solarRadiation(ret, 6)
                                     }}
                                 />
                             </td>
@@ -82,7 +82,7 @@ export function FormularioIrradiacaoSolar({ solarRadiation }: FormSolarRadiation
                                 <Input id="exampleEmail" name="email" placeholder="Mês 8" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        solarRadiation[7] = ret
+                                        solarRadiation(ret, 7)
                                     }}
                                 />
                             </td>
@@ -90,7 +90,7 @@ export function FormularioIrradiacaoSolar({ solarRadiation }: FormSolarRadiation
                                 <Input id="exampleEmail" name="email" placeholder="Mês 9" type="text" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        solarRadiation[8] = ret
+                                        solarRadiation(ret, 8)
                                     }}
                                 />
                             </td>
@@ -98,7 +98,7 @@ export function FormularioIrradiacaoSolar({ solarRadiation }: FormSolarRadiation
                                 <Input id="exampleEmail" name="email" placeholder="Mês 10" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        solarRadiation[9] = ret
+                                        solarRadiation(ret, 9)
                                     }}
                                 />
                             </td>
@@ -106,7 +106,7 @@ export function FormularioIrradiacaoSolar({ solarRadiation }: FormSolarRadiation
                                 <Input id="exampleEmail" name="email" placeholder="Mês 11" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        solarRadiation[10] = ret
+                                        solarRadiation(ret, 10)
                                     }}
                                 />
                             </td>
@@ -114,7 +114,7 @@ export function FormularioIrradiacaoSolar({ solarRadiation }: FormSolarRadiation
                                 <Input id="exampleEmail" name="email" placeholder="Mês 12" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        solarRadiation[11] = ret
+                                        solarRadiation(ret, 11)
                                     }}
                                 />
                             </td>

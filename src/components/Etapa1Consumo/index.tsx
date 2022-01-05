@@ -8,18 +8,33 @@ import { Container } from "./styles"
 
 
 interface FormConsumoProps {
-    consumer: number[];
+    consumer: (valor: number, indice: number) => void;
+    name: (valor: string) => void;
+    email: (valor: string) => void;
 }
 
-export function FormularioConsumo ({ consumer }: FormConsumoProps) {
+export function FormularioConsumo ({ consumer, name, email }: FormConsumoProps) {
     
     return (
         <Container>
             <strong>Dimensionamento de sistema fotovoltaico</strong>
             <Form>
                 <FormGroup>
-                    <Label for="exampleEmail">Email</Label>
-                    <Input id="exampleEmail" name="email" placeholder="E-mail" type="email" />
+                    <Label for="nomeLabel">Nome</Label>
+                    <Input id="nome" name="nome" placeholder="Nome" type="text"
+                        onChange={event => {
+                            const ret = String(event.target.value)
+                            name(ret)
+                        }}
+                    />
+
+                    <Label for="emailLabel">Email</Label>
+                    <Input id="email" name="email" placeholder="E-mail" type="email"
+                        onChange={event => {
+                            const ret = String(event.target.value)
+                            email(ret)
+                        }}
+                    />
                 </FormGroup>
                 <Table borderless>
                     <thead>
@@ -33,15 +48,15 @@ export function FormularioConsumo ({ consumer }: FormConsumoProps) {
                                 <Input id="mes01" placeholder="Mês 1" type="number" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        consumer[0] = ret
+                                        consumer(ret, 0)
                                     }} 
                                 />
                             </td>
                             <td> 
-                                <Input id="exampleEmail" name="email" placeholder="Mês 2" type="email" 
+                                <Input id="exampleEmail" name="email" placeholder="Mês 2" type="number" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        consumer[1] = ret
+                                        consumer(ret, 1)
                                     }}
                                 />
                             </td>
@@ -49,7 +64,7 @@ export function FormularioConsumo ({ consumer }: FormConsumoProps) {
                                 <Input id="exampleEmail" name="email" placeholder="Mês 3" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        consumer[2] = ret
+                                        consumer(ret, 2)
                                     }}
                                 />
                             </td>
@@ -57,7 +72,7 @@ export function FormularioConsumo ({ consumer }: FormConsumoProps) {
                                 <Input id="exampleEmail" name="email" placeholder="Mês 4" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        consumer[3] = ret
+                                        consumer(ret, 3)
                                     }}
                                 />
                             </td>
@@ -65,7 +80,7 @@ export function FormularioConsumo ({ consumer }: FormConsumoProps) {
                                 <Input id="exampleEmail" name="email" placeholder="Mês 5" type="text" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        consumer[4] = ret
+                                        consumer(ret, 4)
                                     }}
                                 />
                             </td>
@@ -73,7 +88,7 @@ export function FormularioConsumo ({ consumer }: FormConsumoProps) {
                                 <Input id="exampleEmail" name="email" placeholder="Mês 6" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        consumer[5] = ret
+                                        consumer(ret, 5)
                                     }}
                                 />
                             </td>
@@ -81,7 +96,7 @@ export function FormularioConsumo ({ consumer }: FormConsumoProps) {
                                 <Input id="exampleEmail" name="email" placeholder="Mês 7" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        consumer[6] = ret
+                                        consumer(ret, 6)
                                     }}
                                 />
                             </td>
@@ -91,7 +106,7 @@ export function FormularioConsumo ({ consumer }: FormConsumoProps) {
                                 <Input id="exampleEmail" name="email" placeholder="Mês 8" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        consumer[7] = ret
+                                        consumer(ret, 7)
                                     }}
                                 />
                             </td>
@@ -99,7 +114,7 @@ export function FormularioConsumo ({ consumer }: FormConsumoProps) {
                                 <Input id="exampleEmail" name="email" placeholder="Mês 9" type="text" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        consumer[8] = ret
+                                        consumer(ret, 8)
                                     }}
                                 />
                             </td>
@@ -107,7 +122,7 @@ export function FormularioConsumo ({ consumer }: FormConsumoProps) {
                                 <Input id="exampleEmail" name="email" placeholder="Mês 10" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        consumer[9] = ret
+                                        consumer(ret, 9)
                                     }}
                                 />
                             </td>
@@ -115,7 +130,7 @@ export function FormularioConsumo ({ consumer }: FormConsumoProps) {
                                 <Input id="exampleEmail" name="email" placeholder="Mês 11" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        consumer[10] = ret
+                                        consumer(ret, 10)
                                     }}
                                 />
                             </td>
@@ -123,7 +138,7 @@ export function FormularioConsumo ({ consumer }: FormConsumoProps) {
                                 <Input id="exampleEmail" name="email" placeholder="Mês 12" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        consumer[11] = ret
+                                        consumer(ret, 11)
                                     }}
                                 />
                             </td>
@@ -131,7 +146,7 @@ export function FormularioConsumo ({ consumer }: FormConsumoProps) {
                                 <Input id="exampleEmail" name="email" placeholder="Mês 13" type="email" 
                                     onChange={event => {
                                         const ret = Number(event.target.value)
-                                        consumer[12] = ret
+                                        consumer(ret, 12)
                                     }}
                                 />
                             </td>
